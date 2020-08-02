@@ -26,10 +26,10 @@ class Solution:
         """
         if head is None or head.next is None:
             return head
-        tail_src = self.reverseListRecur(head.next)
+        new_head = self.reverseListRecur(head.next)
         head.next.next = head
         head.next = None
-        return tail_src
+        return new_head
 
     def reverseList(self, head: ListNode) -> ListNode:
         """
@@ -41,7 +41,7 @@ class Solution:
             # curr.next = pre
             # pre = curr
             # curr = next_src
-            curr.next, pre, curr = pre, curr, curr.next  # 赋值顺序应与多行时一致
+            curr.next, pre, curr = pre, curr, curr.next  # curr.next与curr赋值顺序不能反
         return pre
 
 # leetcode submit region end(Prohibit modification and deletion)

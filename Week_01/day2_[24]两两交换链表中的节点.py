@@ -22,10 +22,11 @@
 class Solution:
     def swapPairs(self, head: ListNode) -> ListNode:
         """
-        递归法 好难啊 时间复杂度o(n)
+        递归法 时间复杂度o(n)
         """
         if head is None or head.next is None:
             return head
-        new_head, new_head.next, head.next = head.next, head, self.swapPairs(head.next.next)
+        # head.next.next和head.next赋值顺序不能反
+        new_head, head.next.next, head.next = head.next, head, self.swapPairs(head.next.next)
         return new_head
 # leetcode submit region end(Prohibit modification and deletion)

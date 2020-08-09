@@ -39,36 +39,35 @@ class Solution:
         动态规划法 对法一找左右侧最大值的方式进行优化 时间复杂度O(n) 空间复杂度O(n)
         """
         areas = 0
-        max_left = [0] * len(height)
         max_right = [0] * len(height)
-        for i in range(1, len(height) - 1):
-            max_left[i] = max(max_left[i - 1], height[i - 1])
+        max_left = 0
+        # max_left = [0] * len(height)
+        # for i in range(1, len(height) - 1):
+        #     max_left[i] = max(max_left[i - 1], height[i - 1])
         for i in range(len(height) - 2, 0, -1):
             max_right[i] = max(max_right[i + 1], height[i + 1])
         for i in range(1, len(height) - 1):
-            areas += max(min(max_left[i], max_right[i]) - height[i], 0)
+            max_left = max(max_left, height[i - 1])
+            # areas += max(min(max_left[i], max_right[i]) - height[i], 0)
+            areas += max(min(max_left, max_right[i]) - height[i], 0)
         return areas
 
     def trap(self, height: List[int]) -> int:
         """
         双指针法 结合上述两种方法 时间复杂度o(n)
         """
-        if len(height) == 0:
-            return 0
-        areas = 0
-        max_left, max_right = height[0], height[len(height) - 1]
-        left, right = 1, len(height) - 2
-        # max_left, max_right = 0, 0
-        # left, right = 0, len(height) - 1
-        while left <= right:
+        res = 0
+        max_left, max_right = 0, 0
+        i, j = 1, len(height) - 2
+        while i <= j:
+            max_left = max(max_left, height[i - 1])
+            max_right = max(max_right, height[j + 1])
             if max_left < max_right:
-                areas += max(0, max_left - height[left])
-                max_left = max(max_left, height[left])
-                left += 1
+                res += max(max_left - height[i], 0)
+                i += 1
             else:
-                areas += max(0, max_right - height[right])
-                max_right = max(max_right, height[right])
-                right -= 1
-        return areas
+                res += max(max_right - height[j], 0)
+                j -= 1
+        return res
 
 # leetcode submit region end(Prohibit modification and deletion)

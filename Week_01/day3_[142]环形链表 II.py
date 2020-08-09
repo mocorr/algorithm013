@@ -38,7 +38,7 @@
 #  进阶： 
 # 你是否可以不用额外空间解决此题？ 
 #  Related Topics 链表 双指针 
-#  👍 561 👎 0
+#  👍 569 👎 0
 
 
 # leetcode submit region begin(Prohibit modification and deletion)
@@ -51,7 +51,7 @@
 class Solution:
     def detectCycleHash(self, head: ListNode) -> ListNode:
         """
-        哈希法 使用额外空间 时间复杂度o(n)
+        哈希法 时间复杂度O(n) 空间复杂度O(n)
         """
         tmp = []
         while head:
@@ -63,25 +63,33 @@ class Solution:
 
     def detectCycle(self, head: ListNode) -> ListNode:
         """
-        快慢指针法 不使用额外空间 时间复杂度o(n)
-        阶段1:找出快慢指针相遇点
-        阶段2:找到环入口
+        快慢指针法 时间复杂度O(n) 空间复杂度O(1)
+        思路: 先找出快慢指针相遇点，再找出环入口
+        定义:
+            head到链表入口有a个节点（不计head），链表环有b个节点
+        阶段1:
+            找出快慢指针相遇点 快2慢1
+            以慢指针为坐标系：慢指针原地不动，快指针每次追1步，若有环必会相遇
+            f = 2s, f = s + nb ==>  s = nb, f = 2nb
+        阶段2:
+            找出环入口
+            a = 从head到达环入口步数 = 慢指针再走回到环入口步数
         """
-        cross = self.getCross(head)
-        if cross is None:
-            return None
-        p1, p2 = head, cross
+        p1, p2 = self.getCross(head), head
+        if not p1:
+            return
         while p1 != p2:
-            p1, p2 = p1.next, p2.next
+            p1 = p1.next
+            p2 = p2.next
         return p1
 
     def getCross(self, head):
         faster, slower = head, head
-        while faster is not None and faster.next is not None:
+        while faster and slower and faster.next:
             faster = faster.next.next
             slower = slower.next
             if faster == slower:
                 return faster
-        return None
+        return
 
 # leetcode submit region end(Prohibit modification and deletion)

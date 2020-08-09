@@ -52,12 +52,10 @@ class Solution:
             if i in ['(', '[', '{']:
                 stack.append(i)
             else:
-                if len(stack) == 0:
+                if not stack:
                     return False
                 top = stack.pop()
-                if (top == '(' and i == ')') or (top == '[' and i == ']') or (top == '{' and i == '}'):
-                    continue
-                else:
+                if not ((top == '(' and i == ')') or (top == '[' and i == ']') or (top == '{' and i == '}')):
                     return False
         return len(stack) == 0
 
@@ -70,11 +68,8 @@ class Solution:
         for i in s:
             if i in dic:
                 stack.append(i)
-            else:
-                if len(stack) == 0:
-                    return False
-                if dic[stack.pop()] != i:
-                    return False
+            elif not stack or dic[stack.pop()] != i:
+                return False
         return len(stack) == 0
 
 # leetcode submit region end(Prohibit modification and deletion)

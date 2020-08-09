@@ -24,14 +24,14 @@ class Solution:
     def threeSum(self, nums):
         """
         排序+遍历嵌套双指针 时间复杂度o(n^2)
-        要求不能重复 需要增加重复性判断
+        要求不能重复 难点是重复性判断
         """
-        if len(nums) < 3:
-            return []
+        # if len(nums) < 3:
+        #     return []
         res = []
         nums.sort()
         for k in range(len(nums) - 2):
-            if nums[k] > 0:
+            if nums[k] > 0:  # 可大幅提速
                 return res
             if k > 0 and nums[k] == nums[k - 1]:
                 continue

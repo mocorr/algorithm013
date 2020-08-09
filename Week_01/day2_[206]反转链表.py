@@ -36,7 +36,7 @@ class Solution:
         迭代法 时间复杂度o(n)
         """
         curr, pre = head, None
-        while curr is not None:
+        while curr:
             # next_src = curr.next
             # curr.next = pre
             # pre = curr

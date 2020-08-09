@@ -28,7 +28,7 @@ class Solution:
 
     def moveZeroes(self, nums: List[int]) -> None:
         """
-        双指针法 时间复杂度o(n) i主动遍历 j被动移动 i与j相同时不做多余交换
+        快慢指针法 时间复杂度o(n) i主动遍历 j被动移动 i与j相同时不做多余交换
         """
         j = 0
         for i in range(len(nums)):

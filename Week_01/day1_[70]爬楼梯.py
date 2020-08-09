@@ -40,7 +40,7 @@ class Solution:
 
     def climbStairsNotBad(self, n):
         """
-        开个数组存全部过程量
+        开个数组存全部过程量 时间复杂度O(n) 空间复杂度O(n)
         """
         if n <= 2:
             return n
@@ -53,7 +53,7 @@ class Solution:
 
     def climbStairs(self, n):
         """
-        只存最近2个数
+        动态规划 只存最近2个数 时间复杂度O(n) 空间复杂度O(1)
         """
         if n <= 2:
             return n

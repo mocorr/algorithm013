@@ -30,6 +30,9 @@
 
 # leetcode submit region begin(Prohibit modification and deletion)
 class Solution:
+    """
+    k要对n取模 k=n时等效于不操作 ①节省操作次数 ②避免越界
+    """
     def rotateBad(self, nums: List[int], k: int) -> None:
         """
         暴力遍历法 时间复杂度o(n*k) 空间复杂度o(1)

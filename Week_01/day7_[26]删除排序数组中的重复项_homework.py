@@ -49,6 +49,7 @@ class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
         """
         容易想到快慢指针法 时间复杂度o(n) 空间复杂度o(1)
+        最后返回的是长度 所以要让index再加1
         """
         j = 0
         for i in range(len(nums)):

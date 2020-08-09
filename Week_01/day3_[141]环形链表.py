@@ -37,7 +37,7 @@
 # 
 #  你能用 O(1)（即，常量）内存解决此问题吗？ 
 #  Related Topics 链表 双指针 
-#  👍 692 👎 0
+#  👍 702 👎 0
 
 
 # leetcode submit region begin(Prohibit modification and deletion)
@@ -48,7 +48,12 @@
 #         self.next = None
 
 class Solution:
-    def hasCycle(self, head: ListNode) -> bool:
+    def hasCycleHash(self, head: ListNode) -> bool:
+        """
+        哈希法
+        时间复杂度O(n) 空间复杂度O(n)
+        Hash表中存的是引用,而非具体数值. 相同head.val也有可能是不同节点
+        """
         tmp = []
         while head:
             if head in tmp:
@@ -57,5 +62,17 @@ class Solution:
             head = head.next
         return False
 
+    def hasCycle(self, head: ListNode) -> bool:
+        """
+        快慢指针法 快2慢1 以慢指针为坐标系：慢指针原地不动，快指针每次追1步
+        时间复杂度O(n) 空间复杂度O(1)
+        """
+        i, j = head, head
+        while i and j and i.next:
+            i = i.next.next
+            j = j.next
+            if i == j:
+                return True
+        return False
 
 # leetcode submit region end(Prohibit modification and deletion)

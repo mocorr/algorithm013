@@ -23,30 +23,25 @@
 class Solution:
     def maxAreaBad(self, height: List[int]) -> int:
         """
-        暴力法 两层循环 时间复杂度高o(n^2)
+        暴力法 两层循环 时间复杂度高o(n^2) 空间复杂度O(1)
         """
         max_area = 0
-        for i in range(len(height)):
+        for i in range(len(height) - 1):
             for j in range(i + 1, len(height)):
-                area = min(height[i], height[j]) * (j - i)
-                if area > max_area:
-                    max_area = area
+                max_area = max(min(height[i], height[j]) * (j - i), max_area)
         return max_area
 
     def maxArea(self, height: List[int]) -> int:
         """
-        双指针法 向内移动较短的线
+        双指针法 向内移动较短的线 时间复杂度O(n) 空间复杂度O(1)
         """
         max_area = 0
-        i = 0
-        j = len(height) - 1
+        i, j = 0, len(height) - 1
         while i < j:
-            area = min(height[i], height[j]) * (j - i)
-            if area > max_area:
-                max_area = area
-            if height[i] > height[j]:
-                j -= 1
-            else:
+            max_area = max(min(height[i], height[j]) * (j - i), max_area)
+            if height[i] < height[j]:
                 i += 1
+            else:
+                j -= 1
         return max_area
 # leetcode submit region end(Prohibit modification and deletion)

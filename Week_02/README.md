@@ -55,8 +55,9 @@ class Solution:
 * Worst时间复杂度：哈希碰撞，退化为链表，查找、插入、删除O(n)
 
 ### 2.2 树、二叉树、二叉搜索树
-思想：链表是特殊的树，树是特殊的图
-树的题型总结:
+* 思想：链表是特殊的树，树是特殊的图
+
+* 树的题型总结:
 https://leetcode-cn.com/problems/n-ary-tree-preorder-traversal/solution/yi-tao-quan-fa-shua-diao-nge-bian-li-shu-de-wen--3/
 
 #### 2.2.1 二叉树

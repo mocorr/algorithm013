@@ -87,11 +87,11 @@ https://leetcode-cn.com/problems/n-ary-tree-preorder-traversal/solution/yi-tao-q
 * 图的类型：无/有向图、无/有权图
 * 图的表示：邻接矩阵、邻接表
 * 点
-  1. 入/出度
-  2. 是否连通
+    * 入/出度
+    * 是否连通
 * 边（edge）
-  1. 有向和无向
-  2. 权重
+    * 有向和无向
+    * 权重
 * 图可能有环，BFS需要加上visited；树无环不需要
 
 

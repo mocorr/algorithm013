@@ -45,9 +45,8 @@ class Solution:
             else:
                 digits[i] += 1
                 return digits
-        if digits[0] == 0:
-            digits[0] = 1
-            digits.append(0)
+        digits[0] = 1  # 不需要额外判断首位是否为0
+        digits.append(0)
         return digits
 
 # leetcode submit region end(Prohibit modification and deletion)

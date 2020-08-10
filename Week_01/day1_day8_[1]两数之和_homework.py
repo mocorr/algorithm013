@@ -29,7 +29,9 @@ class Solution:
 
     def twoSumSort(self, nums: List[int], target: int) -> List[int]:
         """
-        排序+双指针 时间复杂度O(n) 空间复杂度O(n) 两元素相等时不能取同一index
+        排序+双指针 两元素相等时不能取同一index
+        时间复杂度O(n^2):while循环里使用了nums.index; 排序sort时间复杂度O(nlogn)
+        空间复杂度O(n)
         """
         tmp = sorted(nums)
         i, j = 0, len(nums) - 1
@@ -54,22 +56,20 @@ class Solution:
         """
         dic = dict()
         for i in range(len(nums)):  # 遍历方向一致 步长相等 必可合并
-            dic[nums[i]] = i
+            dic[target - nums[i]] = i
         for i in range(len(nums)):
-            partner = target - nums[i]
-            if partner in dic and dic.get(partner) != i:
-                return [i, dic.get(partner)]
+            if nums[i] in dic and dic[nums[i]] != i:
+                return [i, dic[nums[i]]]
 
     def twoSumHash(self, nums: List[int], target: int) -> List[int]:
         """
         一遍哈希 时间复杂度O(n) 空间复杂度O(n)
         """
-        dic = dict()
+        dic = {}
         for i in range(len(nums)):
-            partner = target - nums[i]
-            if partner in dic:
-                return [i, dic.get(partner)]
-            dic[nums[i]] = i
+            if nums[i] in dic:
+                return [i, dic[nums[i]]]
+            dic[target - nums[i]] = i
 
 
 

@@ -21,6 +21,8 @@ class Solution:
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
         """
         递归法
+        时间复杂度O(m+n)
+        空间复杂度O(m+n): 递归调用函数时需要消耗栈空间，大小取决于递归深度
         """
         if l1 is None:
             return l2
@@ -35,7 +37,8 @@ class Solution:
 
     def mergeTwoLists1(self, l1: ListNode, l2: ListNode) -> ListNode:
         """
-        遍历法 生成一个哑节点可以不用专门去判断head
+        迭代法 生成一个哑节点可以不用专门去判断head
+        时间复杂度O(m+n) 空间复杂度O(1)
         """
         pre = ListNode()
         curr = pre

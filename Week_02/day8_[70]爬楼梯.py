@@ -30,7 +30,7 @@
 
 class Solution:
     @functools.lru_cache(100)  # 缓存装饰器
-    def climbStairsBad(self, n):
+    def climbStairsCur(self, n):
         """
         暴力递归 不加缓存容易超时
         """
@@ -38,29 +38,26 @@ class Solution:
             return n
         return self.climbStairs(n - 1) + self.climbStairs(n - 2)
 
-    def climbStairsNotBad(self, n):
+    def climbStairsBad(self, n):
         """
         开个数组存全部过程量 时间复杂度O(n) 空间复杂度O(n)
         """
-        if n < 3:
+        if n <= 2:
             return n
-        tmp = [0] * n
-        tmp[0] = 1
-        tmp[1] = 2
+        tmp = [1, 2]
         for i in range(2, n):
-            tmp[i] = tmp[i - 2] + tmp[i - 1]
+            tmp.append(tmp[i - 1] + tmp[i - 2])
         return tmp[n - 1]
 
     def climbStairs(self, n):
         """
         动态规划 只存最近2个数 时间复杂度O(n) 空间复杂度O(1)
         """
-        if n < 3:
+        if n <= 2:
             return n
-        tmp1 = 1
-        tmp2 = 2
+        tmp1, tmp2 = 1, 2
         for i in range(2, n):
-            tmp2, tmp1 = tmp1 + tmp2, tmp2
+            tmp1, tmp2 = tmp2, tmp1 + tmp2
         return tmp2
 
 # leetcode submit region end(Prohibit modification and deletion)

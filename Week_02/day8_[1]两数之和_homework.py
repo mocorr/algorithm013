@@ -29,7 +29,9 @@ class Solution:
 
     def twoSumSort(self, nums: List[int], target: int) -> List[int]:
         """
-        排序+双指针 时间复杂度O(n) 空间复杂度O(n) 两元素相等时不能取同一index
+        排序+双指针 两元素相等时不能取同一index
+        时间复杂度O(nlogn): max(排序sort:O(nlogn),while:O(n)*index:O(1))
+        空间复杂度O(n)
         """
         tmp = sorted(nums)
         i, j = 0, len(nums) - 1
@@ -54,20 +56,19 @@ class Solution:
         """
         dic = dict()
         for i in range(len(nums)):  # 遍历方向一致 步长相等 必可合并
-            dic[nums[i]] = i
+            dic[target - nums[i]] = i
         for i in range(len(nums)):
-            partner = target - nums[i]
-            if partner in dic and dic.get(partner) != i:
-                return [i, dic.get(partner)]
+            if nums[i] in dic and dic[nums[i]] != i:
+                return [i, dic[nums[i]]]
 
     def twoSumHash(self, nums: List[int], target: int) -> List[int]:
         """
         一遍哈希 时间复杂度O(n) 空间复杂度O(n)
         """
-        tmp = dict()
+        dic = {}
         for i in range(len(nums)):
-            if target - nums[i] in tmp:
-                return [i, tmp.get(target - nums[i])]
-            tmp[nums[i]] = i
+            if nums[i] in dic:
+                return [i, dic[nums[i]]]
+            dic[target - nums[i]] = i
 
 # leetcode submit region end(Prohibit modification and deletion)

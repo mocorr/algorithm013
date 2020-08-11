@@ -30,7 +30,7 @@ class Solution:
     def twoSumSort(self, nums: List[int], target: int) -> List[int]:
         """
         排序+双指针 两元素相等时不能取同一index
-        时间复杂度O(nlogn): max(排序sort:O(nlogn),while:O(n)*index:O(1))
+        时间复杂度O(n^2): max(排序sort:O(nlogn), while:O(n)*index:O(n))
         空间复杂度O(n)
         """
         tmp = sorted(nums)

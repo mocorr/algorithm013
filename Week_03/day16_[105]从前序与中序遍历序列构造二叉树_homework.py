@@ -31,7 +31,7 @@ class Solution:
     def buildTreeCur(self, preorder: List[int], inorder: List[int]) -> TreeNode:
         """
         递归法 时间复杂度O(n) 空间复杂度O(n)
-        思路：由前序得到根节点的值，在中序找到对应的index，从而划分左右子树，递归
+        思路：递归最小重复单元：由前序得到根节点的值，在中序找到对应的index，从而划分左右子树
         """
         if not preorder:
             return None

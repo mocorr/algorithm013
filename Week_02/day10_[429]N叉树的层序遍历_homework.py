@@ -78,7 +78,7 @@ class Solution:
     def levelOrderCur(self, root: 'Node') -> List[List[int]]:
         """
         递归法 访问顺序并非层序，各层内部相对顺序正确
-        时间复杂度O(n) 空间复杂度?
+        时间复杂度O(n) 空间复杂度O(n)
         """
 
         def helper(node, level):

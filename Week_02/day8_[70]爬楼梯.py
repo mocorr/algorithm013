@@ -32,7 +32,7 @@ class Solution:
     @functools.lru_cache(100)  # 缓存装饰器
     def climbStairsCur(self, n):
         """
-        暴力递归 不加缓存容易超时
+        暴力递归 不加缓存会超时
         """
         if n == 1 or n == 2:
             return n

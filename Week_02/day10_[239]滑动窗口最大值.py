@@ -72,7 +72,7 @@ class Solution:
             quque.append(i)
             if quque[0] < i - k + 1:
                 quque.popleft()
-            if i > k - 2:
+            if i >= k - 1:
                 res.append(nums[quque[0]])
         return res
 # leetcode submit region end(Prohibit modification and deletion)

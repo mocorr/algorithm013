@@ -85,7 +85,7 @@ class Solution:
             if len(res) == level:
                 res.append([])
             res[level].append(node.val)
-            for child in node.children:
+            for child in node.children:  # 若无child结点，递归自然结束
                 helper(child, level + 1)
 
         if not root:

@@ -28,8 +28,7 @@ class Solution:
         i = 0
         while count < n:
             i += 1
-            a = self.isUglyNumber(int(i))
-            if a:
+            if self.isUglyNumber(int(i)):
                 count += 1
         return i
 

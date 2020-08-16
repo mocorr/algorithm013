@@ -31,8 +31,11 @@
 #  所有节点的值都是唯一的。 
 #  p、q 为不同节点且均存在于给定的二叉树中。 
 #  
+# 
+#  注意：本题与主站 236 题相同：https://leetcode-cn.com/problems/lowest-common-ancestor-of-a
+# -binary-tree/ 
 #  Related Topics 树 
-#  👍 688 👎 0
+#  👍 109 👎 0
 
 
 # leetcode submit region begin(Prohibit modification and deletion)
@@ -43,12 +46,11 @@
 #         self.left = None
 #         self.right = None
 
-
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
         """
         递归法 时间复杂度O(n) 空间复杂度O(n)
-        终止条件：当前节点为目标节点或为空
+        终止条件：当前节点为目标节点或空
         """
         if not root or root == p or root == q:
             return root
@@ -59,6 +61,5 @@ class Solution:
         if not right:
             return left
         return root
-
         
 # leetcode submit region end(Prohibit modification and deletion)

@@ -30,7 +30,9 @@
 class Solution:
     def buildTreeBad(self, preorder: List[int], inorder: List[int]) -> TreeNode:
         """
-        递归法 使用list.index 时间复杂度O(n^2) 空间复杂度O(n) 但切片使用额外空间
+        递归法
+        时间复杂度O(n^2) 使用了list.index
+        空间复杂度O(n) 切片使用额外空间
         """
         if not preorder and not inorder:
             return
@@ -42,7 +44,9 @@ class Solution:
 
     def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
         """
-        递归法（优化） 时间复杂度O(n) 空间复杂度O(n)
+        递归法（优化）
+        时间复杂度O(n) 避免使用list.index
+        空间复杂度O(n) 只传指针
         已知树中没有重复的元素，将中序转为set方便取根节点索引
         递归只传指针（尾指针不取到，所以头尾指针相等时就返回）
         """

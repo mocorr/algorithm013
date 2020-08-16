@@ -29,14 +29,13 @@ class Solution:
         空间复杂度：O(NK)
         """
         dic = {}
-        for s in strs:
-            sorted_word = self.hashWord(s)
-            if sorted_word in dic:
-                dic[sorted_word].append(s)
-            else:
-                dic[sorted_word] = [s]
-        return list(dic.values())
-
-    def hashWord(self, word):
-        return ''.join(sorted(list(word)))
+        for word in strs:
+            word_sorted = tuple(sorted(word))  # tuple可以作为字典的key，list不可以
+            # if word_sorted in dic:
+            #     dic[word_sorted].append(word)
+            # else:
+            #     dic[word_sorted] = [word]
+            dic[word_sorted] = dic.get(word_sorted, []) + [word]
+        # return [dic[k] for k in dic]
+        return dic.values()
 # leetcode submit region end(Prohibit modification and deletion)

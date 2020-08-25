@@ -8,21 +8,20 @@
 ##２.作业
 
 使用二分查找，寻找一个半有序数组 [4, 5, 6, 7, 0, 1, 2] 中间无序的地方
-
+同leetcode 153题 寻找旋转排序数组中的最小值
 ```python
 # Python
-def digitFind(nums):
+def findMinIndex(nums):
     if not nums:
         return -1
-    n = len(nums)
-    l, r = 0, n - 1
-    while l < r:
-        mid = (l + r) // 2
-        if nums[l] < nums[mid]:
-            l = mid
-        elif nums[l] >= nums[mid]:
-            r = mid
-    return r
+    left, right = 0, len(nums) - 1
+    while lelft < right:
+        mid = (left + right) // 2
+        if nums[mid] > nums[right]:
+            left = mid + 1
+        else:
+            right = mid
+    return left
 ```
 
 ## ３. 知识点

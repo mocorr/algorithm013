@@ -24,12 +24,18 @@
 # leetcode submit region begin(Prohibit modification and deletion)
 class Solution:
     def mySqrt(self, x: int) -> int:
-        if x == 0:
-            return 0
-        if x < 4:
+        """
+        平方根问题，x>=4才满足 x//2 >= sqrt(x)，所以 x<4需要特殊讨论；
+        但此题x in [0,2,3]时，right恰为解(不进入循环)，仅需特判x == 1的情况.
+        """
+        # if x == 0:
+        #     return 0
+        # if x < 4:
+        #     return 1
+        if x == 1:
             return 1
         left, right = 2, x // 2
-        while left <= right:
+        while left <= right:  # 相当于停止条件是left > right
             mid = left + (right - left) // 2
             mid_square = mid * mid
             if mid_square == x:

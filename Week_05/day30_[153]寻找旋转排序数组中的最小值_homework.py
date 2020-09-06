@@ -21,6 +21,12 @@
 
 # leetcode submit region begin(Prohibit modification and deletion)
 class Solution:
+    def findMin1(self, nums: List[int]) -> int:
+        for i in range(len(nums)):
+            if i >= 1 and nums[i] < nums[i - 1]:
+                return nums[i]
+        return nums[0]
+
     def findMin(self, nums: List[int]) -> int:
         left, right = 0, len(nums) - 1
         while left < right:

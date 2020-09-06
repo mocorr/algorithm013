@@ -25,20 +25,20 @@
 # leetcode submit region begin(Prohibit modification and deletion)
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
-        left, right = 0, len(nums) - 1
-        while left <= right:
+        left, right = 0, len(nums) - 1  # 选择左闭右闭
+        while left <= right:  # 由左闭右闭得终止条件
             mid = (left + right) // 2
             if nums[mid] == target:
                 return mid
-            elif nums[mid] >= nums[left]:
-                if nums[left] <= target < nums[mid]:
+            elif nums[mid] >= nums[left]:  # if左半边较正常
+                if nums[left] <= target < nums[mid]:  # 且目标值在左半边
                     right = mid - 1
-                else:
+                else:  # 且目标值在右半边
                     left = mid + 1
-            elif nums[mid] <= nums[right]:
-                if nums[mid] < target <= nums[right]:
+            elif nums[mid] <= nums[right]:  # if右半边较正常
+                if nums[mid] < target <= nums[right]:  # 且目标值在右半边
                     left = mid + 1
-                else:
+                else:  # 且目标值在左半边
                     right = mid - 1
         return -1
 # leetcode submit region end(Prohibit modification and deletion)

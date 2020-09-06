@@ -64,16 +64,14 @@ class Solution:
             elif bill == 10:
                 count_10 += 1
                 count_5 -= 1
-                if count_5 < 0:
-                    return False
             else:
                 if count_10 > 0:
                     count_10 -= 1
                     count_5 -= 1
                 else:
                     count_5 -= 3
-                if count_5 < 0:
-                    return False
+            if count_5 < 0:
+                return False
         return True
 
 # leetcode submit region end(Prohibit modification and deletion)

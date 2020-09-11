@@ -1,9 +1,4 @@
 # 学习笔记
-
-[TOC]
-
-
-
 ## 一、循环(重复)
 
 不断的重复、有始有终
@@ -20,7 +15,7 @@ private loop(){
 }
 ```
 
-~~~python
+~~~python33
 def loop():
     for start in end/loop_termination:
         expression1;
@@ -57,7 +52,7 @@ private void recursion(int level,int param1,int param2...):{
 }
 ~~~
 
-```python
+```python3
 def recursion(level, param1, param2...):
     # 终止条件(recursion terminato)
     if level > MAX_LEVEL:
@@ -104,7 +99,7 @@ private static int divide_conquer(Problem, Param1, Param2...) {
 }
 ```
 
-~~~python
+~~~python3
 def divide_conquer(Problem, Param1, Param2...):
      # 终止条件
      if problem is None:
@@ -152,7 +147,7 @@ def divide_conquer(Problem, Param1, Param2...):
 * 递推公式(状态转移方程，DP方程)
 * eg
 
-```python
+```python3
 # 一维
 Fib：
     opt[i] = opt[n - 1] + opt[n - 2]

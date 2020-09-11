@@ -1,9 +1,4 @@
 # 学习笔记
-
-[TOC]
-
-
-
 ## Trie
 ### 基本定义：
 
@@ -31,7 +26,7 @@ Trie树的核心思想是空间换时间
 
 ### Trie树实现:
 
-~~~python
+~~~python3
 class Trie:
     def __init__(self):
         self.root = {} # 使用字典，而不是数组！key 可能为a，b,c...
@@ -59,4 +54,37 @@ class Trie:
             node = node[char]
             return True      
 ~~~
+
+
+
+## 并查集
+
+### 基本操做
+
+makeSet(s):建立一个新的并查集，其中包含s个单元素集合
+
+unionSet(x,y):把元素x和元素y所在的集合合并，要求x和y所在的集合不相交。如果相交则不合并
+
+find(x): 找到元素x所在的集合代表，该操作也可以用于判断两个元素是否位于同一个集合，只需将各自的代表比较即可
+
+基本实现：
+
+```python3
+def init(p): 
+	# for i = 0 .. n: p[i] = i; 
+	p = [i for i in range(n)] 
+ 
+def union(self, p, i, j): 
+	p1 = self.parent(p, i) 
+	p2 = self.parent(p, j) 
+	p[p1] = p2 
+ 
+def parent(self, p, i): 
+	root = i 
+	while p[root] != root: 
+		root = p[root] 
+	while p[i] != i: # 路径压缩 ?
+		x = i; i = p[i]; p[x] = root 
+	return root
+```
 

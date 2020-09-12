@@ -25,3 +25,9 @@ class Trie:
             node = node[char]
             return True
 
+
+def twoBFS():
+    visited = set()
+    queue1, queue2 = [], []  # 亦可使用{}，快速去中
+    queue1.append(start)
+    queue2.appned(end)

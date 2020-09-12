@@ -20,10 +20,11 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="673e7ed8-1784-48d0-aad9-f1ab6aa04d7e" name="Default Changelist" comment="&quot;exchange Week of 6 and 7&quot;">
-      <change afterPath="$PROJECT_DIR$/Week_07/friend-circles.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Week_07/word-search-ii.py" afterDir="false" />
+    <list default="true" id="673e7ed8-1784-48d0-aad9-f1ab6aa04d7e" name="Default Changelist" comment="&quot;Add&quot;">
+      <change afterPath="$PROJECT_DIR$/Week_07/generate-parentheses.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Week_07/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Week_07/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Week_07/demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/Week_07/demo.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,8 +61,10 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
@@ -89,7 +92,8 @@
       <workItem from="1599838675819" duration="79000" />
       <workItem from="1599838780144" duration="3466000" />
       <workItem from="1599842649821" duration="184000" />
-      <workItem from="1599843478714" duration="1551000" />
+      <workItem from="1599843478714" duration="1945000" />
+      <workItem from="1599880198436" duration="2170000" />
     </task>
     <task id="LOCAL-00001" summary="“as”">
       <created>1599838705386</created>
@@ -105,7 +109,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599841468501</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="&quot;Add&quot;">
+      <created>1599845131916</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1599845131916</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,7 +182,8 @@
     </ignored-roots>
     <MESSAGE value="“as”" />
     <MESSAGE value="&quot;exchange Week of 6 and 7&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;exchange Week of 6 and 7&quot;" />
+    <MESSAGE value="&quot;Add&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;Add&quot;" />
   </component>
   <component name="WindowStateProjectService">
     <state x="636" y="244" key="#Docker" timestamp="1599842710437">
@@ -202,10 +214,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="198" y="105" width="1484" height="864" key="ShowDiffWithBranchDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1599842832875" />
-    <state x="532" y="270" key="Vcs.Push.Dialog.v2" timestamp="1599842735556">
+    <state x="532" y="270" key="Vcs.Push.Dialog.v2" timestamp="1599845151540">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="532" y="270" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1599842735556" />
+    <state x="532" y="270" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1599845151540" />
     <state x="753" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1599838730898">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

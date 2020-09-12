@@ -88,3 +88,149 @@ def parent(self, p, i):
 	return root
 ```
 
+## 高级搜索
+
+### 朴素搜索
+
+优化方式：去重、减枝
+
+### 搜索方向
+
+DFS：depth first search 深度优先搜索
+
+~~~python
+# DFS 递归
+visited = set() 
+
+def DFS(node, visited):
+    if node in visited: # terminator
+    	# already visited 
+    	return 
+	visited.add(node) 
+
+	# process current node here. 
+	...
+	for next_node in node.children(): 
+		if next_node not in visited: 
+			dfs(next_node, visited)
+ # 非递归：模拟栈
+
+def DFS(self, tree): 
+	if tree.root is None: 
+		return [] 
+
+	visited, stack = [], [tree.root]
+
+	while stack: 
+		node = stack.pop() 
+		visited.add(node)
+
+		process (node) 
+		nodes = generate_related_nodes(node) 
+		stack.push(nodes) 
+
+		# other processing work 
+~~~
+
+BFS：Breadth first search 广度优先搜索
+
+~~~Python
+def BFS(graph, start, end):
+    visited = set()
+	queue = [] 
+	queue.append([start]) 
+	while queue: 
+		node = queue.pop() 
+		visited.add(node)
+		process(node) 
+		nodes = generate_related_nodes(node) 
+		queue.push(nodes)
+	# other processing work 
+	...
+~~~
+
+双向搜索、启发式搜索
+
+### 双向BFS
+
+```python
+def dBFS(graph, start, end):
+    visited = set()
+    front = []
+    back = []
+    front.append(start)
+    back.append(end)
+    while front and back:
+        nodes = set()
+        for node in front:
+            visited.add(node) #加入访问
+            process(node) # 处理当前node
+            nodes.append(generate_related_nodes(node)) #获取子节点
+        front = nodes
+        if len(back) < len(front):	        # 从较小的set开始
+            front, back = back, front
+    ...
+        
+```
+
+## 启发式搜索
+
+启发式搜索（Heuristic Search, A*）,Heuristic指的是根据某一些条件，我们不断的优化搜索方向，本质上用的就是利用优先级进行查找。核心是在定义在估价函数, h(n)。
+
+```python
+def AstarSearch(graph, start, end):
+
+    pq = collections.priority_queue() # 优先级 —> 估价函数
+    pq.append([start]) 
+    visited.add(start)
+
+    while pq: 
+        node = pq.pop() # can we add more intelligence here ?
+        visited.add(node)
+
+        process(node) 
+        nodes = generate_related_nodes(node) 
+         unvisited = [node for node in nodes if node not in visited]
+        pq.push(unvisited)
+```
+
+
+
+
+
+## 红黑树和AVL树
+
+- 思考树的结构和二叉树的结构
+- 树的遍历，前中序遍历，DFS，BFS
+- 二叉搜索树(BST),  查找，插入，删除
+
+起因：二叉搜索树的极端情况，退换成链表
+
+改进：平衡二叉树，包括2-3 树, AA 树,B+ Tree, **红黑树和AVL 树**
+
+这些数据结构面试的时候只需要**理解原理**，不需要书写
+
+### AVL树: 完全平衡二叉树
+
+发明者是G. M. Adelson-Velsky和Evgenii Landis
+
+- 平衡因子（记录左子树和右子树的高度差）
+- 旋转操作（左旋，右旋，左右旋，右左旋）
+- 不足: 节点需要存储额外信息，且调整次数频繁（维护成本高）
+
+面试要点：平衡因子的由来，四种基本旋转操作，
+
+右右子树，都在右边，左旋
+
+### 红黑树: 近似平衡二叉树
+
+高度绝对值差2倍，红黑树的五点性质
+
+保证任何一个节点的左右子树**高度差**小于两倍（例如，左边是5，右边可以是10，或者2.5 ）即
+
+- 每个节点要么是红色，要么是黑色
+- 根节点是黑色
+- 每个叶节点(NIL节点，空节点)是黑色
+- 不能有相邻的两个红色节点（关键）
+- 从任一节点到其中每个叶子的所有路径都包括**相同数目**的黑色节点（关键）
+

@@ -50,15 +50,14 @@ class Solution:
         ② s[j] == s[i], j - i = 1 偶数base
         ③ s[j] == s[i], 且其中间是回文
         """
-        count = 0
-        n = len(s)
-        dp = [[0] * n for i in range(n)]
-        for j in range(n):  # 两层遍历的顺序是难点
-            for i in range(j + 1):
-                if s[j] == s[i] and (j - i <= 1 or dp[i + 1][j - 1]):
-                    dp[i][j] = 1
-                    count += 1
-        return count
+        dp = [[0] * len(s) for _ in range(len(s))]
+        res = 0
+        for i in range(len(s)):
+            for j in range(i + 1):
+                if s[i] == s[j] and (i - j <= 1 or dp[j + 1][i - 1] == 1):
+                    dp[j][i] = 1
+                    res += 1
+        return res
 
     def countSubstrings(self, s: str) -> int:
         """

@@ -16,8 +16,30 @@
 
 # leetcode submit region begin(Prohibit modification and deletion)
 class Solution:
+    def maxSubArrayDp(self, nums: List[int]) -> int:
+        if not nums:
+            return 0
+        dp = [0] * len(nums)
+        dp[0] = nums[0]
+        for i in range(1, len(nums)):
+            dp[i] = max(nums[i], nums[i] + dp[i - 1])
+        return max(dp)
+		
     def maxSubArray(self, nums: List[int]) -> int:
         for i in range(1, len(nums)):
             nums[i] = max(nums[i - 1] + nums[i], nums[i])
         return max(nums)
+
+    def maxSubArray(self, nums: List[int]) -> int:
+        """
+        不破坏原数组
+        """
+        if not nums:
+            return 0
+        res = float('-inf')
+        pre = 0
+        for i in range(len(nums)):
+            pre = max(pre + nums[i], nums[i])
+            res = max(res, pre)
+        return res
 # leetcode submit region end(Prohibit modification and deletion)

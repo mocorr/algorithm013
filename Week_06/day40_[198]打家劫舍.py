@@ -34,9 +34,17 @@
 
 # leetcode submit region begin(Prohibit modification and deletion)
 class Solution:
+    def robDp(self, nums: List[int]) -> int:
+        if not nums:
+            return 0
+        dp = [0] * (len(nums) + 2)
+        for i in range(2, len(nums) + 2):
+            dp[i] = max(dp[i - 1], dp[i - 2] + nums[i - 2])
+        return dp[-1]
+
     def rob(self, nums: List[int]) -> int:
-        cur, pre = 0, 0
-        for num in nums:
-            cur, pre = max(pre + num, cur), cur
-        return cur
+        pre1, pre2 = 0, 0
+        for i in range(len(nums)):
+            pre1, pre2 = max(pre1, pre2 + nums[i]), pre1
+        return pre1
 # leetcode submit region end(Prohibit modification and deletion)

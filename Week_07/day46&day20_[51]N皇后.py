@@ -55,7 +55,9 @@ class Solution:
     def dfs(self, row, n, tmp):
         # recursion terminator
         if row == n:
-            self.res.append(tmp)
+			# 这里绝不能直接append(self.cols), 可以用一个当前层变量存储 或 加上.copy()
+			# list中存放的是self.cols的地址, 修改self.cols也会改变self.res
+            self.res.append(tmp)  
             return
 
         # try all options
@@ -92,6 +94,7 @@ class Solution:
                 if col in cols or col - row in diffs or col + row in sums:
                     continue
                 dfs(row + 1, cols + [col], diffs + [col - row], sums + [col + row])
+                # 这里不需要恢复当前层，因为cols, diffs, sums是层层传递的，不会对其他分支造成影响（也没法恢复
 
         res = []
         dfs(0, [], [], [])

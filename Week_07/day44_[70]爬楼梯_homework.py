@@ -32,22 +32,11 @@ class Solution:
     @functools.lru_cache(100)  # 缓存装饰器
     def climbStairsCur(self, n):
         """
-        暴力递归 不加缓存超时
+        递归+缓存
         """
         if n == 1 or n == 2:
             return n
         return self.climbStairs(n - 1) + self.climbStairs(n - 2)
-
-    def climbStairsBad(self, n):
-        """
-        开个数组存全部过程量 时间复杂度O(n) 空间复杂度O(n)
-        """
-        if n <= 2:
-            return n
-        tmp = [1, 2]
-        for i in range(2, n):
-            tmp.append(tmp[i - 1] + tmp[i - 2])
-        return tmp[n - 1]
 
     def climbStairs(self, n):
         """

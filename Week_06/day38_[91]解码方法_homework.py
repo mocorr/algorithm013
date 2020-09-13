@@ -28,12 +28,15 @@
 # leetcode submit region begin(Prohibit modification and deletion)
 class Solution:
     def numDecodings(self, s: str) -> int:
+	    """
+		纸老虎 i-1和i-2级台阶有条件的爬楼梯问题而已！
+		"""
         dp = [0] * (len(s) + 1)
-        dp[0] = 1
+        dp[0] = 1  # 首位padding可以少写好几句
         for i in range(1, len(s) + 1):
             if s[i - 1] != '0':  # 最后一位能单独解码
-                dp[i] = dp[i - 1]
-            if i >= 2:
+                dp[i] += dp[i - 1]
+            if i >= 2:  # 易漏
                 if 10 <= int(s[i - 2]) * 10 + int(s[i - 1]) <= 26:  # 最后两位能组成有效码
                     dp[i] += dp[i - 2]
         return dp[-1]

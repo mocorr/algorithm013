@@ -79,22 +79,37 @@ class Solution:
         width = len(grid[0])
         dic = {}
         return _helper(0, 0)
+		
+    def minPathSum4(self, grid: List[List[int]]) -> int:
+	    """
+        递归超时写法2 的记忆化（直接缓存装饰器）
+        """
+        @functools.lru_cache(None)
+        def _helper(i, j):
+            if i == len(grid) - 1 and j == len(grid[0]) - 1:
+                return grid[i][j]
+            if i == len(grid) - 1:
+                return grid[i][j] + _helper(i, j + 1)
+            if j == len(grid[0]) - 1:
+                return grid[i][j] + _helper(i + 1, j)    
+            return grid[i][j] + min(_helper(i + 1, j), _helper(i, j + 1)) 
+        return _helper(0, 0)
 
     def minPathSum(self, grid: List[List[int]]) -> int:
         """
         dp 时间复杂度O(mn)
         """
-        m = len(grid)
-        n = len(grid[0])
-        for i in range(m - 1, -1, -1):
-            for j in range(n - 1, -1, -1):
-                if i == m - 1 and j == n - 1:
+        rows, cols = len(grid), len(grid[0])
+        dp = grid[-1]
+        for i in range(rows - 1, -1, -1):
+            for j in range(cols - 1, -1, -1):
+                if i == rows - 1 and j == cols - 1:
                     continue
-                elif i == m - 1:
-                    grid[i][j] += grid[i][j + 1]
-                elif j == n - 1:
-                    grid[i][j] += grid[i + 1][j]
+                elif i == rows - 1:
+                    dp[j] = grid[i][j] + dp[j + 1]
+                elif j == cols - 1:
+                    dp[j] = grid[i][j] + dp[j]
                 else:
-                    grid[i][j] += min(grid[i + 1][j], grid[i][j + 1])
-        return grid[0][0]
+                    dp[j] = grid[i][j] + min(dp[j + 1], dp[j])
+        return dp[0]
 # leetcode submit region end(Prohibit modification and deletion)

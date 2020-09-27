@@ -76,4 +76,18 @@ class Solution:
                     box[i // 3 * 3 + j // 3][val] = 1
         return True
 
+    def isValidSudoku(self, board: List[List[str]]) -> bool:
+        rows = [[0] * 9 for _ in range(9)]
+        cols = [[0] * 9 for _ in range(9)]
+        boxes = [[0] * 9 for _ in range(9)]
+        for i in range(9):
+            for j in range(9):
+                if board[i][j] != ".":
+                    val = int(board[i][j])
+                    if rows[i][val - 1] or cols[j][val - 1] or boxes[i // 3 * 3 + j // 3][val - 1]:
+                        return False
+                    rows[i][val - 1] = 1
+                    cols[j][val - 1] = 1
+                    boxes[i // 3 * 3 + j // 3][val - 1] = 1
+        return True
 # leetcode submit region end(Prohibit modification and deletion)

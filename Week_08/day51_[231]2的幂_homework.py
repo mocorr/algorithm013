@@ -40,7 +40,7 @@ class Solution:
 
     def isPowerOfTwo(self, n: int) -> bool:
         """
-        n & (-n) 获取n最右边的1，故无需加 n > 0 的判断
+        n & (-n) 只保留n最右边的1（其他置为0），故无需加 n > 0 的判断
         若n为2的幂，则只有一个1.
         """
         if n == 0:

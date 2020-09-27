@@ -69,7 +69,7 @@ class Solution:
                                 return dis
                             if new_word in word_set:
                                 next_set.add(new_word)
-                                word_set.remove(new_word)
+                                word_set.remove(new_word)  # 注意要移除已尝试词
             begin_set = next_set
         return 0
 
@@ -97,7 +97,7 @@ class Solution:
                                 return dis
                             if new_word in word_set:
                                 next_set.add(new_word)
-                                word_set.remove(new_word)
+                                word_set.remove(new_word)  # 注意要移除已尝试词
             begin_set = next_set
             if len(begin_set) > len(end_set):
                 begin_set, end_set = end_set, begin_set

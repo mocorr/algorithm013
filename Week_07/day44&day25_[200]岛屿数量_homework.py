@@ -40,27 +40,28 @@ class Solution:
         """
         DFS法
         """
-        def _helper(row, col):
-            for x, y in ((row + 1, col), (row - 1, col), (row, col + 1), (row, col - 1)):
-                if 0 <= x < len(grid) and 0 <= y < len(grid[0]) and grid[x][y] == "1":
-                    grid[x][y] = "0"
-                    _helper(x, y)
+        def _dfs(x, y):
+            for x_next, y_next in ((x - 1, y), (x, y + 1), (x + 1, y), (x, y - 1)):
+                if 0 <= x_next < h and 0 <= y_next < w and grid[x_next][y_next] == '1':
+                    grid[x_next][y_next] = '0'
+                    _dfs(x_next, y_next)
 
+        if not grid:
+            return 0
         cnt = 0
-        for i in range(len(grid)):
-            for j in range(len(grid[0])):
-                if grid[i][j] == "1":
+        h, w = len(grid), len(grid[0])
+        for i in range(h):
+            for j in range(w):
+                if grid[i][j] == '1':
+                    grid[i][j] = '0'
                     cnt += 1
-                    _helper(i, j)
+                    _dfs(i, j)
         return cnt
 
     def numIslandsP(self, grid: List[List[str]]) -> int:
         """
         并查集法
         """
-        def _union(x, y):
-            p[_parent(x)] = _parent(y)
-
         def _parent(x):
             root = x
             while p[root] != root:
@@ -69,24 +70,27 @@ class Solution:
                 x, p[x] = p[x], root
             return root
 
+        def _union(x, y):
+            p[_parent(x)] = _parent(y)
+
         if not grid:
             return 0
-        rows = len(grid)
-        cols = len(grid[0])
-        p = [i for i in range(rows * cols)]
+        h, w = len(grid), len(grid[0])
+        p = [i for i in range(h * w)]
 
-        for i in range(rows):
-            for j in range(cols):
+        for i in range(h):
+            for j in range(w):
                 if grid[i][j] == "1":
-                    for tmp_i, tmp_j in ((i + 1, j), (i, j + 1)):
-                        if 0 <= tmp_i < rows and 0 <= tmp_j < cols and grid[tmp_i][tmp_j] == "1":
-                            _union(tmp_i * cols + tmp_j, i * cols + j)
+                    for i_next, j_next in ((i, j + 1), (i + 1, j)):  # 只需要走正向
+                        if 0 <= i_next < h and 0 <= j_next < w and grid[i_next][j_next] == "1":
+                            _union(i * w + j, i_next * w + j_next)
 
         res = set()
-        for i in range(rows):
-            for j in range(cols):
+        for i in range(h):
+            for j in range(w):
                 if grid[i][j] == "1":
-                    res.add(_parent(i * cols + j))
+                    res.add(_parent(i * w + j))
+
         return len(res)
 
 # leetcode submit region end(Prohibit modification and deletion)

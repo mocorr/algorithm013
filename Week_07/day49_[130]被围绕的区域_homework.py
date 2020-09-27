@@ -82,7 +82,7 @@ class Solution:
                 if board[i][j] == "O":
                     if i == 0 or j == 0 or i == h - 1 or j == w - 1:
                         _union(i * w + j, 0)
-                    for tmp_i, tmp_j in ((i + 1, j), (i, j + 1)):
+                    for tmp_i, tmp_j in ((i + 1, j), (i, j + 1)):  # 只要是“O”就去扩散
                         if 0 <= tmp_i < h and 0 <= tmp_j < w and board[tmp_i][tmp_j] == "O":
                             _union(tmp_i * w + tmp_j, i * w + j)
 

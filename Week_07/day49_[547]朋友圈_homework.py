@@ -74,7 +74,7 @@ class Solution:
 
         def _parent(x):
             root = x
-            while p[root] != root:
+            while p[root] != root:  # 这里是while 别写成if
                 root = p[root]
             while p[x] != x:
                 x, p[x] = p[x], root

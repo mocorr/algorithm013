@@ -45,7 +45,7 @@ class Solution:
         if n <= 2:
             return n
         tmp1, tmp2 = 1, 2
-        for i in range(2, n):
+        for i in range(2, n):  # range(n - 2)
             tmp1, tmp2 = tmp2, tmp1 + tmp2
         return tmp2
 

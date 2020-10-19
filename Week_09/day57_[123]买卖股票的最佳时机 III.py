@@ -38,10 +38,10 @@ class Solution:
         dp = [[[0] * 2 for k in range(3)]for i in range(n)]
         for k in range(3):
             dp[0][k][1] = float('-inf')
-            dp[-1][k][1] = float('-inf')
+            dp[-1][k][1] = float('-inf')   # 可读性很差 晦涩
         for i in range(n):
             for k in range(1, 2 + 1):
                 dp[i][k][0] = max(dp[i - 1][k][0], dp[i - 1][k][1] + prices[i])
-                dp[i][k][1] = max(dp[i - 1][k - 1][0] - prices[i], dp[i - 1][k][1])
+                dp[i][k][1] = max(dp[i - 1][k][1], dp[i - 1][k - 1][0] - prices[i])
         return dp[-1][2][0]
 # leetcode submit region end(Prohibit modification and deletion)

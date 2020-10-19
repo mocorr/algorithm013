@@ -1,6 +1,61 @@
 ﻿# 期末总结
 ---
-[TOC]
+
+<a name="index">**Index**</a>
+&emsp;<a href="#0">0 感想</a>  
+&emsp;<a href="#1">1 学习方法与思想</a>  
+&emsp;&emsp;<a href="#2">1.1 五毒神掌</a>  
+&emsp;&emsp;<a href="#3">1.2 面试切题四件套</a>  
+&emsp;&emsp;<a href="#4">1.3 学习TIPS</a>  
+&emsp;&emsp;<a href="#5">1.4 Tricks（部分是自己敲代码的感受）</a>  
+&emsp;<a href="#6">2 数据结构与算法知识点</a>  
+&emsp;&emsp;<a href="#7">2.1.1. 数组、链表、跳表</a>  
+&emsp;&emsp;<a href="#8">2.1.2. 栈、队列、优先队列、双端队列</a>  
+&emsp;&emsp;<a href="#13">2.2.1 哈希表、映射、集合</a>  
+&emsp;&emsp;<a href="#14">2.2.2 树、二叉树、二叉搜索树</a>  
+&emsp;&emsp;&emsp;<a href="#15">2.2.2.1 二叉树</a>  
+&emsp;&emsp;&emsp;<a href="#26">2.2.2.2 二叉搜索树(BST, Binary Search Tree)：</a>  
+&emsp;&emsp;<a href="#27">2.2.3 堆和二叉堆</a>  
+&emsp;&emsp;<a href="#28">2.2.4 图(Graph)</a>  
+&emsp;&emsp;<a href="#29">2.3.1 泛型递归、树递归</a>  
+&emsp;&emsp;<a href="#35">2.3.2 分治、回溯</a>  
+&emsp;&emsp;&emsp;<a href="#36">2.3.2.1 分治</a>  
+&emsp;&emsp;&emsp;<a href="#43">2.3.2.2 回溯</a>  
+&emsp;&emsp;<a href="#51">2.4.1 深度优先搜索和广度优先搜索</a>    
+&emsp;&emsp;<a href="#62">2.4.2 贪心算法</a>  
+&emsp;&emsp;<a href="#63">2.4.3 二分查找</a>  
+&emsp;&emsp;<a href="#66">2.5.1 动态规划（即递推）</a>  
+&emsp;&emsp;&emsp;<a href="#67">2.5.1.1 理解</a>  
+&emsp;&emsp;&emsp;<a href="#68">2.5.1.2 步骤</a>  
+&emsp;&emsp;<a href="#69">2.6.1 字典树 Trie树</a>  
+&emsp;&emsp;<a href="#70">2.6.2 并查集</a>  
+&emsp;&emsp;<a href="#71">2.6.3 高级搜索</a>  
+&emsp;&emsp;&emsp;<a href="#72">2.6.3.1 剪枝</a>  
+&emsp;&emsp;&emsp;<a href="#79">2.6.3.2 双向搜索</a>  
+&emsp;&emsp;&emsp;<a href="#81">2.6.3.3 启发式搜索（A*）</a>  
+&emsp;&emsp;<a href="#82">2.6.4 红黑树和AVL树</a>  
+&emsp;&emsp;&emsp;<a href="#83">2.6.4.1 AVL树: 完全平衡二叉树</a>  
+&emsp;&emsp;&emsp;<a href="#84">2.6.4.2 红黑树: 近似平衡二叉树</a>  
+&emsp;&emsp;<a href="#85">2.7.1 位运算</a>  
+&emsp;&emsp;&emsp;<a href="#86">2.7.1.1 二进制基础概念：</a>  
+&emsp;&emsp;&emsp;<a href="#87">2.7.1.2 位运算基本操作：</a>  
+&emsp;&emsp;&emsp;<a href="#88">2.7.1.3 异或技巧</a>  
+&emsp;&emsp;&emsp;<a href="#89">2.7.1.4 位运算常用技巧：</a>  
+&emsp;&emsp;&emsp;<a href="#90">2.7.1.5 指定位置的位运算：</a>  
+&emsp;&emsp;<a href="#91">2.7.2 布隆过滤器和LRU缓存</a>  
+&emsp;&emsp;&emsp;<a href="#92">2.7.2.1 布隆过滤器</a>  
+&emsp;&emsp;&emsp;<a href="#93">2.7.2.2 LRU缓存</a>  
+&emsp;&emsp;<a href="#94">2.7.3 排序算法</a>  
+&emsp;&emsp;&emsp;<a href="#95">2.7.3.1 初级排序</a>  
+&emsp;&emsp;&emsp;&emsp;<a href="#96">2.7.3.1.1 冒泡排序</a>  
+&emsp;&emsp;&emsp;&emsp;<a href="#97">2.7.3.1.2 选择排序</a>  
+&emsp;&emsp;&emsp;&emsp;<a href="#98">2.7.3.1.3 插入排序</a>  
+&emsp;&emsp;&emsp;&emsp;<a href="#99">2.7.3.1.4 希尔排序</a>  
+&emsp;&emsp;&emsp;<a href="#100">2.7.3.2 高级排序</a>  
+&emsp;&emsp;&emsp;&emsp;<a href="#101">2.7.3.2.1 归并排序</a>  
+&emsp;&emsp;&emsp;&emsp;<a href="#102">2.7.3.2.2 快速排序</a>   
+&emsp;&emsp;&emsp;&emsp;<a href="#105">2.7.3.2.3 堆排序</a>  
+&emsp;&emsp;&emsp;<a href="#106">2.7.3.3 特殊排序(非比较类排序)</a>  
 
 ## 0 感想
 
@@ -16,7 +71,6 @@
  - “牛逼牛逼！”
  - “十分科学！”
  - “XXfine秒mine”
-把我最爱的部分总结在下方最前面：
 
 ## 1 学习方法与思想
 
@@ -689,15 +743,16 @@ def AstarSearch(graph, start, end):
 
 - 比较类排序
 通过比较来决定元素间的相对次序，由于其时间复杂度不能突破O(nlogn)，因此也成为非线形时间比较类排序
- - 交换排序：冒泡排序、快速排序
- - 插入排序：(简单)插入排序、希尔排序
- - 选择排序：(简单)选择排序、堆排序
- - 归并排序：二路归并排序、多路归并排序
+  - 交换排序：冒泡排序、快速排序
+  - 插入排序：(简单)插入排序、希尔排序
+  - 选择排序：(简单)选择排序、堆排序
+  - 归并排序：二路归并排序、多路归并排序
+
 - 非比较排序
 不通过比较来决定元素间的相对次序，它可以突破基于比较排序的时间下界，以线形时间运行，因此也成为线形时间非比较类排序
- - 计数排序
- - 桶排序
- - 基数排序
+  - 计数排序
+  - 桶排序
+  - 基数排序
 
 
 #### 2.7.3.1 初级排序
@@ -894,9 +949,9 @@ def heapsort(nums):
 思路：假设输入数据服从均匀分布，将数据分到有限数量的桶里，每个桶再分别排序（有可能再使用别的排序算法或以递归方式继续使用桶排序进行排序）。
 
 - 基数排序
- - 基数排序是按照低位先排序，然后收集；
- - 再按照高位先排序，然后再收集；以此类推，直到最高位。
- - 有时候有些属性是有优先级顺序的，先按低优先级排序，再按高优先级排序。
+  - 基数排序是按照低位先排序，然后收集；
+  - 再按照高位先排序，然后再收集；以此类推，直到最高位。
+  - 有时候有些属性是有优先级顺序的，先按低优先级排序，再按高优先级排序。
 
 
 [1]: http://www.361way.com/bitwise-operators/5778.html
